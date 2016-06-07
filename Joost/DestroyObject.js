@@ -8,12 +8,12 @@ function Start () {
 
 function Update () {
     if(sceneSwitch.onlyOnce == true){
-        Invoke("DestroyObject", 0.1f);
+        Invoke("Destruction", 0.1f);
         
         }
     }
     
-    function DestroyObject()
+    function Destruction()
     {
         if(Input.GetKeyDown(KeyCode.Mouse0)){
             Destroy(this.gameObject);
