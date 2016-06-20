@@ -84,47 +84,7 @@ public class test extends MonoBehaviour{
         }
 
 
-
-        if(this.gameObject.name == "huidenPlus"){
-            test2.huiden = test2.huiden + 1;
-            test2.huidenPrijs = test2.huidenKosten * test2.huiden;
-        }
-        if(this.gameObject.name == "huidenMinus"){
-            test2.huiden = test2.huiden - 1;
-            test2.huidenPrijs = test2.huidenKosten * test2.huiden;
-        }
-        if(test2.huiden < 0){
-            test2.huiden = 0;
-        }
-
-
-
-
-        if(this.gameObject.name == "houtPlus"){
-            test2.hout = test2.hout + 1;
-            test2.houtPrijs = test2.houtKosten * test2.hout;
-        }
-        if(this.gameObject.name == "houtMinus"){
-            test2.hout = test2.hout - 1;
-            test2.houtPrijs = test2.houtKosten * test2.hout;
-        }
-        if(test2.hout < 0){
-            test2.hout = 0;
-        }
-
-
-        if(this.gameObject.name == "steenPlus"){
-            test2.steen = test2.steen + 1;
-            test2.steenPrijs = test2.steenKosten * test2.steen;
-        }
-        if(this.gameObject.name == "steenMinus"){
-            test2.steen = test2.steen - 1;
-            test2.steenPrijs = test2.steenKosten * test2.steen;
-        }
-        if(test2.steen < 0){
-            test2.steen = 0;
-        }
-
+        // Bereken het totaalbedrag
         test2.totaalBedrag = test2.graanPrijs + test2.cacaoPrijs + test2.peperPrijs + test2.nootmuskaatPrijs;
 
         // Producten kopen
@@ -137,20 +97,58 @@ public class test extends MonoBehaviour{
                 test2.invCacao = test2.invCacao + test2.cacao;
                 test2.invPeper = test2.invPeper + test2.peper;
                 test2.invNootmuskaat = test2.invNootmuskaat + test2.nootmuskaat;
+
+                // reset variabelen
+                test2.graan = 0;
+                test2.graanPrijs = 0;
+
+                test2.cacao = 0;
+                test2.cacaoPrijs = 0;
+
+                test2.peper = 0;
+                test2.peperPrijs = 0;
+
+                test2.nootmuskaat = 0;
+                test2.nootmuskaatPrijs = 0;
+
+                test2.totaalBedrag = 0;
+            }else{
+                
             }
         }
 
         //Producten verkopen
         if(this.gameObject.name == "verkopen"){
-            if(test2.invGraan <= test2.graan){
+
+            // Als er genoeg producten in de inventory zit kan er worden verkocht
+            if(test2.invGraan >= test2.graan && test2.invCacao >= test2.cacao && test2.invPeper >= test2.peper && test2.invNootmuskaat >= test2.nootmuskaat){
                 test2.invGraan = test2.invGraan - test2.graan;
+                test2.invCacao = test2.invCacao - test2.cacao;
+                test2.invPeper = test2.invPeper - test2.peper;
+                test2.invNootmuskaat = test2.invNootmuskaat - test2.nootmuskaat;
                 test2.gold = test2.gold + test2.totaalBedrag;
+
+                // reset variabelen
+                test2.graan = 0;
+                test2.graanPrijs = 0;
+
+                test2.cacao = 0;
+                test2.cacaoPrijs = 0;
+
+                test2.peper = 0;
+                test2.peperPrijs = 0;
+
+                test2.nootmuskaat = 0;
+                test2.nootmuskaatPrijs = 0;
+
+                test2.totaalBedrag = 0;
             }
+
         }
 
         // Ga terug naar de stad
         if(this.gameObject.name == "terug"){
-            Debug.Log("test");
+            Debug.Log("Terug naar de stad");
             //Application.LoadLevel("City");
         }
     }

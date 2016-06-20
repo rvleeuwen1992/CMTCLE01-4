@@ -44,15 +44,4 @@ public class test2 extends MonoBehaviour{
     public static var nootmuskaatTekst:String = "Nootmuskaat";
     public static var nootmuskaatKosten:int = 9;
     public static var nootmuskaatPrijs:int = 0;
-
-
-    public static var huiden:int = 0;
-    public static var huidenKosten:int = 10;
-    public static var huidenPrijs:int = 0;
-    public static var hout:int = 0;
-    public static var houtKosten:int = 10;
-    public static var houtPrijs:int = 0;
-    public static var steen:int = 0;
-    public static var steenKosten:int = 10;
-    public static var steenPrijs:int = 0;
 }
